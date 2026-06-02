@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anees Inspires | Motivation for Success</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0b0c10;
+            --bg-secondary: #1f2833;
+            --accent: #66fcf1;
+            --accent-hover: #45a29e;
+            --text-light: #c5c6c7;
+            --text-white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-dark); color: var(--text-white); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; color: var(--text-white); }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn { display: inline-block; padding: 12px 30px; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        .btn-primary { background: linear-gradient(135deg, #66fcf1 0%, #45a29e 100%); color: var(--bg-dark); box-shadow: 0 0 15px rgba(102, 252, 241, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 25px rgba(102, 252, 241, 0.6); }
+        .section-padding { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; }
+        .section-subtitle { text-align: center; color: var(--accent); margin-bottom: 3rem; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: 600; }
+        
+        nav { position: fixed; top: 0; width: 100%; background: rgba(11, 12, 16, 0.9); backdrop-filter: blur(10px); z-index: 1000; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text-light); transition: all 0.3s ease; }
+        .nav-links a:hover { color: var(--accent); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 70%); }
+        .hero-content { z-index: 2; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(to right, #fff, #a5a5a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 30px; }
+        
+        .quote-section { background: var(--bg-secondary); }
+        .quote-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .quote-icon { font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
+        #daily-quote-text { font-size: 1.5rem; font-style: italic; margin-bottom: 15px; min-height: 60px; }
+        #daily-quote-author { font-weight: 700; color: var(--accent); }
+        .refresh-btn { margin-top: 20px; background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 8px 20px; border-radius: 30px; cursor: pointer; }
+        .refresh-btn:hover { background: var(--accent); color: var(--bg-dark); }
+        
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-image img { width: 100%; border-radius: 20px; filter: grayscale(100%); transition: all 0.3s ease; }
+        .about-image img:hover { filter: grayscale(0%); }
+        .about-text h3 { font-size: 2rem; margin-bottom: 20px; }
+        .about-text p { color: var(--text-light); margin-bottom: 20px; }
+        .stats { display: flex; gap: 30px; margin-top: 30px; }
+        .stat-item h4 { font-size: 2rem; color: var(--accent); }
+        
+        .contact { background: linear-gradient(to bottom, var(--bg-dark), var(--bg-secondary)); }
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: #151920; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        .contact-info h3 { font-size: 2rem; margin-bottom: 20px; }
+        .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; color: var(--text-light); }
+        .info-item i { color: var(--accent); }
+        form { display: flex; flex-direction: column; gap: 20px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: var(--text-white); font-family: inherit; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+        
+        footer { padding: 30px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 10px; transition: all 0.3s ease; }
+        .social-links a:hover { background: var(--accent); color: var(--bg-dark); }
+        footer p { font-size: 0.9rem; color: var(--text-light); }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { position: fixed; top: 70px; right: -100%; background: var(--bg-secondary); width: 100%; flex-direction: column; padding: 20px; transition: all 0.3s ease; text-align: center; }
+            .nav-links.active { right: 0; }
+            .mobile-toggle { display: block; }
+            .about-grid, .contact-wrapper { grid-template-columns: 1fr; }
+            .stats { gap: 15px; }
+            .section-padding { padding: 50px 0; }
+            .contact-wrapper { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Anees<span>Inspires</span>.</a>
+            <div class="mobile-toggle" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#quotes">Quotes</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Unlock Your True Potential</h1>
+            <p>Daily motivation and strategies to help you achieve success, overcome challenges, and become the best version of yourself.</p>
+            <a href="#quotes" class="btn btn-primary">Get Inspired</a>
+        </div>
+    </section>
+
+    <!-- Daily Quote Section -->
+    <section class="quote-section section-padding" id="quotes">
+        <div class="container">
+            <h2 class="section-subtitle">Daily Motivation</h2>
+            <h2 class="section-title">Quote of the Day</h2>
+            <div class="quote-card">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p id="daily-quote-text"></p>
+                <p id="daily-quote-author"></p>
+                <button class="refresh-btn" onclick="newQuote()">New Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop" alt="Anees Profile">
+                </div>
+                <div class="about-text reveal">
+                    <h3>Pushing Limits, Achieving Greatness</h3>
+                    <p>Anees Inspires is dedicated to helping individuals break through mental barriers and achieve their goals. With a focus on mindset, discipline, and consistent action, we provide the tools you need to transform your life.</p>
+                    <p>Whether you're an entrepreneur, student, or professional, our mission is to empower you to reach your full potential.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>5K+</h4>
+                            <span>Followers</span>
+                        </div>
+                        <div class="stat-item">
+                            <h4>200+</h4>
+                            <span>Stories Shared</span>
+                        </div>
+                        <div class="stat-item">
+                            <h4>50+</h4>
+                            <span>Workshops</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <h2 class="section-subtitle">Get In Touch</h2>
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-wrapper reveal">
+                <div class="contact-info">
+                    <h3>Ready to Start Your Journey?</h3>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@aneesinspires.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>New York, USA</span>
+                    </div>
+                </div>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2024 Anees Inspires. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when link clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // Motivational Quotes Array
+        const quotes = [
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+            { text: "The only impossible journey is the one you never begin.", author: "Tony Robbins" },
+            { text: "Your limitation—it's only your imagination.", author: "Unknown" },
+            { text: "Great things never come from comfort zones.", author: "Unknown" },
+            { text: "Dream it. Wish it. Do it.", author: "Unknown" }
+        ];
+
+        function newQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('daily-quote-text').textContent = `"${quotes[randomIndex].text}"`;
+            document.getElementById('daily-quote-author').textContent = `— ${quotes[randomIndex].author}`;
+        }
+
+        // Initialize Quote on Load
+        newQuote();
+
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
